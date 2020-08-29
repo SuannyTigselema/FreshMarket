@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="25dp"
+        app:srcCompat="@drawable/correo" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_alignEnd="@+id/imageView6"
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="6dp"
+        android:width="300dp"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="30dp"
+        app:srcCompat="@drawable/telefono" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="10dp"
+        android:width="300dp"
+        android:ems="10"
+        android:hint="Teléfono"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="286dp"
+        android:layout_height="51dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="58dp"
+        android:gravity="center"
+        android:text="Regístrate"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="center"
+        android:text="Iniciar Sesión"
+        android:textColor="#689F38"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnInicioSesion"
+        android:layout_width="279dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/bordes_redondos"
+        android:color="#689F38"
+        android:onClick="iniciarSesion"
+        android:text="Registrar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="347dp"
+        android:layout_height="78dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="214dp"
+        app:srcCompat="@drawable/usuario" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="32dp"
+        app:srcCompat="@drawable/apellido" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="7dp"
+        android:width="300dp"
+        android:ems="10"
+        android:hint="Nombres"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignEnd="@+id/imageView4"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginTop="9dp"
+        android:width="300dp"
+        android:ems="10"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/cerrar"/>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="127dp"
+        android:layout_height="131dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="103dp"
+        app:srcCompat="@drawable/fotoperfil" />
+
+
+</RelativeLayout>
