@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="30dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="8dp"
+            android:src="@android:drawable/sym_def_app_icon"
+            app:civ_border_color="#C3E1DEDE"
+            app:civ_border_width="1dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="214dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tomate"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Riñón costeño"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblStock1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Stock:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/lblStock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:text="20"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="$0,50"
+            android:textColor="#C81818"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingRight="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/editar"
+            app:civ_border_color="#C3E1DEDE"
+            app:civ_border_width="1dp"
+            android:background="@drawable/btn_circle"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView3"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/quitar"
+            app:civ_border_color="#C3E1DEDE"
+            android:background="@drawable/btn_circle"
+            app:civ_border_width="1dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
