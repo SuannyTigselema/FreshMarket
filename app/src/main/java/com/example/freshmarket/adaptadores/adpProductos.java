@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.freshmarket.R;
 import com.example.freshmarket.objetos.producto;
 
@@ -59,7 +60,11 @@ public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder
         try {
             txtNombre.setText(mLista.get(position).getNombre());
             lblDescripcion.setText(mLista.get(position).getDescripcion());
-
+            lblStock.setText(mLista.get(position).getCantidad());
+            lblPrecio.setText(mLista.get(position).getPrecio());
+            Glide.with(mContext)
+                    .load(mLista.get(position).getUrl())
+                    .into(imgFoto);
          /*   holder.asignar_datos(datos[position]);*/
         }catch (Exception e){}
 
@@ -81,6 +86,8 @@ public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder
             lblDescripcion=(TextView) itemView.findViewById(R.id.lblDescripcion);
             lblPrecio=(TextView) itemView.findViewById(R.id.lblPrecio);
             lblStock=(TextView) itemView.findViewById(R.id.lblStock);
+            imgFoto=(ImageView) itemView.findViewById(R.id.imageView);
+
         }
         public void asignar_datos(String valor){
             txtNombre.setText("Tomate");

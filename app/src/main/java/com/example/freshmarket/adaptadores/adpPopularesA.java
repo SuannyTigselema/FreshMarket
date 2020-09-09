@@ -32,13 +32,13 @@ public class adpPopularesA extends RecyclerView.Adapter<adpPopularesA.MyViewHold
     public TextView lblHeader;
     public ImageView imgFoto;
 
-  /*  public adpPopularesA(Context context, ArrayList<producto> lista) {
+   public adpPopularesA(Context context, ArrayList<producto> lista) {
         mContext = context;
         mLista=lista;
-    }*/
+    }
   private String[] datos;
 
-    public adpPopularesA(){this.datos = new String[]{"a","a","a","a","a","a","a","a","a","a","a"};}
+    /* public adpPopularesA(){this.datos = new String[]{"a","a","a","a","a","a","a","a","a","a","a"};}*/
 
     //Métodos propios del RecyclerdView
 
@@ -56,7 +56,13 @@ public class adpPopularesA extends RecyclerView.Adapter<adpPopularesA.MyViewHold
     //enlaza cada vista del viewholder con los datos de la Lista de productos
     @Override
     public void onBindViewHolder(@NonNull adpPopularesA.MyViewHolder holder, int position) {
-        try {holder.asignar_datos(datos[position]);}catch (Exception e){}
+        try {
+          //  holder.asignar_datos(datos[position]);
+            Glide.with(mContext)
+                    .load(mLista.get(position).getUrl())
+                    .into(imgFoto);
+        }
+        catch (Exception e){}
 
 
     }

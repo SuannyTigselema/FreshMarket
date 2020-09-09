@@ -34,16 +34,50 @@
         </androidx.recyclerview.widget.RecyclerView>
 
 
-        <TextView
-            android:id="@+id/textView7"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:text="Categorías"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:id="@+id/linear">
+
+                <TextView
+                    android:id="@+id/txtCategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Productos"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnNuevoProducto"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="170dp"
+                    android:background="@drawable/bordes_redondos2"
+                    android:text="Nuevo"
+                    android:textAlignment="center"
+                    android:textColor="#689F38"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rclProductos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/linear"
+                android:layout_marginTop="5dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="501dp"
@@ -53,8 +87,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerCategorias2"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_width="337dp"
+                android:layout_height="61dp"
                 android:layout_marginTop="5dp"
                 android:orientation="vertical">
 

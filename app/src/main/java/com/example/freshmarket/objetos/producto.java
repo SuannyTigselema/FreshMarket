@@ -1,5 +1,7 @@
 package com.example.freshmarket.objetos;
 
+import android.widget.ImageView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +12,25 @@ public class producto {
     public String nombre;
     public String descripcion;
     public String url;
-  /*  public producto(JSONObject a) throws JSONException{
+    public String precio;
+    public String cantidad;
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+    /*  public producto(JSONObject a) throws JSONException{
         this.nombre=a.get("nombre").toString();
         this.descripcion=a.get("descripcion").toString();
       //  this.url=a.getString("imagen").toString();

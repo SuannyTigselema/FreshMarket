@@ -4,170 +4,268 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/idLayoutRegistrar"
+    android:id="@+id/frgGestionarProducto"
     tools:context=".frgGestionarProducto">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="286dp"
-            android:layout_height="51dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            android:text="Producto"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtNombreProducto"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:width="300dp"
-            android:hint="Nombre"
-            android:inputType="textPersonName"
-            android:text="tomate" />
-
-        <EditText
-            android:id="@+id/txtDescripcionProducto"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:width="300dp"
-            android:hint="Descripción"
-            android:inputType="textPersonName"
-            android:text="rinon" />
-
-        <EditText
-            android:id="@+id/txtTipoProducto"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:width="300dp"
-            android:hint="Tipo"
-            android:inputType="textPersonName"
-            android:text="fruta" />
-
-        <EditText
-            android:id="@+id/txtPrecioProducto"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:width="300dp"
-            android:hint="Precio"
-            android:inputType="textPersonName"
-            android:text="6" />
-
-        <EditText
-            android:id="@+id/txtStockProducto"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:width="300dp"
-            android:hint="Cantidad"
-            android:inputType="textPersonName"
-            android:text="7" />
-
-        <EditText
-            android:id="@+id/txtDescuentoProducto"
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:width="300dp"
-            android:hint="Descuento"
-            android:inputType="textPersonName"
-            android:text="0" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <TextView
+                android:layout_width="286dp"
+                android:layout_height="51dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="62dp"
+                android:gravity="center"
+                android:text="Producto"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="1dp"
+                android:text="Nombre:"
+                android:textSize="15dp" />
 
             <EditText
-                android:id="@+id/campoDoc"
-                android:layout_width="220dp"
+                android:id="@+id/txtNombreProducto"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:width="300dp"
-                android:hint="Documento"
+                android:width="80dp"
+                android:hint="Nombre"
                 android:inputType="textPersonName"
-                android:text="nd" />
+                android:text="tomate" />
 
-            <Button
-                android:id="@+id/btnFoto"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:background="@color/colorPrimaryDark"
-                android:text="Foto"
-                android:textColor="@android:color/white" />
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/textView11"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="1dp"
+                android:text="Descripción:"
+                android:textSize="15dp" />
 
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imgFoto"
-            android:layout_width="187dp"
-            android:layout_height="137dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/verduras" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnRegistrarProducto"
-                android:layout_width="160dp"
+            <EditText
+                android:id="@+id/txtDescripcionProducto"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/txtNombreProducto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:width="100dp"
+                android:hint="Descripción"
+                android:inputType="textPersonName"
+                android:text="rinon" />
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/textView12"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="1dp"
+                android:text="Tipo:"
+                android:textSize="15dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/txtDescripcionProducto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="10dp"
+                android:width="100dp"/>
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/textView13"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="1dp"
+                android:text="Precio:"
+                android:textSize="15dp" />
+            <EditText
+                android:id="@+id/txtPrecioProducto"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinner"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:width="100dp"
+                android:hint="Precio"
+                android:inputType="textPersonName"
+                android:text="6" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/textView14"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="1dp"
+                android:text="Cantidad:"
+                android:textSize="15dp" />
+            <EditText
+                android:id="@+id/txtStockProducto"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPrecioProducto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:width="100dp"
+                android:hint="Cantidad"
+                android:inputType="textPersonName"
+                android:text="7" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="141dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/textView15"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="1dp"
+                android:text="Descuento:"
+                android:textSize="15dp" />
+            <EditText
+                android:id="@+id/txtDescuentoProducto"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtStockProducto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:width="100dp"
+                android:hint="Descuento"
+                android:inputType="textPersonName"
+                android:text="0" />
+
+            <LinearLayout
+                android:id="@+id/lyfoto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/txtDescuentoProducto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+
+
+                <EditText
+                    android:id="@+id/campoDoc"
+                    android:layout_width="230dp"
+                    android:layout_height="match_parent"
+                    android:width="250dp"
+                    android:layout_marginStart="30dp"
+                    android:hint="Nombre imagen"
+                    android:inputType="textPersonName"
+                    android:text="nd" />
+
+                <Button
+                    android:id="@+id/btnFoto"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimaryDark"
+                    android:textSize="20dp"
+                    android:text="Foto"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgFoto"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/bordes_redondos"
-                android:color="#689F38"
-                android:text="Guardar"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:layout_height="200dp"
+                android:layout_below="@+id/lyfoto"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/verduras" />
 
-            <Button
-                android:id="@+id/btnCancelar"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/bordes_redondos"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/imgFoto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:orientation="horizontal">
 
-                android:color="#689F38"
-                android:text="Cancelar"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btnRegistrarProducto"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bordes_redondos"
+                    android:color="#689F38"
+                    android:text="Guardar"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bordes_redondos"
+
+                    android:color="#689F38"
+                    android:text="Cancelar"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
 
     </ScrollView>
 

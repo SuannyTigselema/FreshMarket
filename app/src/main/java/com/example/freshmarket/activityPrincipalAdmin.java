@@ -47,8 +47,15 @@ public class activityPrincipalAdmin extends AppCompatActivity
 
         navView = (NavigationView)findViewById(R.id.nav_viewAdmin);
         navView.setNavigationItemSelectedListener(this);
+        boolean transactionFragment = false;
 
-       // recyclerview=(RecyclerView)findViewById(R.id.recycler);
+
+        Fragment fragment = new frgInicioAdmin();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_frame, fragment)
+                    .commit();
+
+            // recyclerview=(RecyclerView)findViewById(R.id.recycler);
 
         //añadir un Divider a los elementos de la lista->Diseño de la linea de separacion de los items
         //recyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL));

@@ -27,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.freshmarket.adaptadores.adpPopularesA;
 import com.example.freshmarket.adaptadores.adpProductos;
 import com.example.freshmarket.objetos.VolleySingleton;
 import com.example.freshmarket.objetos.producto;
@@ -62,7 +63,7 @@ public class frgProductosAdmin extends Fragment   implements Response.Listener<J
     View view;
     RequestQueue queque;
     TextView txt;
-    String url="http://192.168.0.21:8080/productoFinal";
+    String url="http://192.168.0.21:81/productoFinal";
     public frgProductosAdmin() {
         // Required empty public constructor
     }
@@ -99,6 +100,11 @@ public class frgProductosAdmin extends Fragment   implements Response.Listener<J
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_frg_productos_admin, container, false);
+        rclProductos = (RecyclerView) view.findViewById(R.id.recyclerPopulares);
+        //añadir un Divider a los elementos de la lista->Diseño de la linea de separacion de los items
+        LinearLayoutManager linear = new LinearLayoutManager(getActivity().getApplicationContext());
+        linear.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rclProductos.setLayoutManager(linear);
 
         lstProductos=new ArrayList<>();
         rclProductos = (RecyclerView) view.findViewById(R.id.rclProductos);
