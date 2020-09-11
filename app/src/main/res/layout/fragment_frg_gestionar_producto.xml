@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/frgGestionarProducto"
+    android:id="@+id/frgGestionarCombo"
     tools:context=".frgGestionarProducto">
     android:id="@+id/frgGestionarProducto"
 
@@ -53,8 +53,7 @@
                 android:layout_marginBottom="10dp"
                 android:width="80dp"
                 android:hint="Nombre"
-                android:inputType="textPersonName"
-                android:text="tomate" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -80,8 +79,7 @@
                 android:layout_marginBottom="10dp"
                 android:width="100dp"
                 android:hint="Descripción"
-                android:inputType="textPersonName"
-                android:text="rinon" />
+                android:inputType="textPersonName" />
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="141dp"
@@ -117,6 +115,7 @@
                 android:layout_marginEnd="1dp"
                 android:text="Precio:"
                 android:textSize="15dp" />
+
             <EditText
                 android:id="@+id/txtPrecioProducto"
                 android:layout_width="200dp"
@@ -129,8 +128,7 @@
                 android:layout_marginBottom="10dp"
                 android:width="100dp"
                 android:hint="Precio"
-                android:inputType="textPersonName"
-                android:text="6" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -143,6 +141,7 @@
                 android:layout_marginEnd="1dp"
                 android:text="Cantidad:"
                 android:textSize="15dp" />
+
             <EditText
                 android:id="@+id/txtStockProducto"
                 android:layout_width="200dp"
@@ -155,8 +154,7 @@
                 android:layout_marginBottom="10dp"
                 android:width="100dp"
                 android:hint="Cantidad"
-                android:inputType="textPersonName"
-                android:text="7" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -169,6 +167,7 @@
                 android:layout_marginEnd="1dp"
                 android:text="Descuento:"
                 android:textSize="15dp" />
+
             <EditText
                 android:id="@+id/txtDescuentoProducto"
                 android:layout_width="200dp"
@@ -181,8 +180,7 @@
                 android:layout_marginBottom="10dp"
                 android:width="100dp"
                 android:hint="Descuento"
-                android:inputType="textPersonName"
-                android:text="0" />
+                android:inputType="textPersonName" />
 
             <LinearLayout
                 android:id="@+id/lyfoto"
@@ -191,42 +189,33 @@
                 android:layout_below="@+id/txtDescuentoProducto"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
 
-
-                <EditText
-                    android:id="@+id/campoDoc"
-                    android:layout_width="230dp"
-                    android:layout_height="match_parent"
-                    android:width="250dp"
-                    android:layout_marginStart="30dp"
-                    android:hint="Nombre imagen"
-                    android:inputType="textPersonName"
-                    android:text="nd" />
-
                 <Button
                     android:id="@+id/btnFoto"
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:background="@color/colorPrimaryDark"
-                    android:textSize="20dp"
+                    android:background="@drawable/bordes_redondos2"
+
                     android:text="Foto"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/imgFoto"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_height="200dp"
                 android:layout_below="@+id/lyfoto"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 app:srcCompat="@drawable/verduras" />
 
             <LinearLayout

@@ -1,12 +1,17 @@
 package com.example.freshmarket;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,7 @@ public class frgGestionarCombo extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button btnAñadirProductos;
 
     public frgGestionarCombo() {
         // Required empty public constructor
@@ -58,7 +64,35 @@ public class frgGestionarCombo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frg_gestionar_combo, container, false);
+        final View vista=inflater.inflate(R.layout.fragment_frg_gestionar_combo, container, false);
+        btnAñadirProductos=(Button)vista.findViewById(R.id.btnadd);
+
+        btnAñadirProductos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarDialogOpciones();
+            }
+        });
+        return  vista;
+    }
+    private void mostrarDialogOpciones() {
+        final CharSequence[] opciones={"Tomar Foto","Elegir de Galeria","Cancelar"};
+        final AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+        builder.setTitle("Elige un producto:");
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (opciones[i].equals("Tomar Foto")){
+
+                }else{
+                    if (opciones[i].equals("Elegir de Galeria")){
+
+                    }else{
+                        dialogInterface.dismiss();
+                    }
+                }
+            }
+        });
+        builder.show();
     }
 }

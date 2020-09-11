@@ -99,7 +99,7 @@ public class frgGestionarProducto extends Fragment{
     private static final int COD_SELECCIONA = 10;
     private static final int COD_FOTO = 20;
 
-    EditText campoNombre,campoDescripcion,campoTipo, campoPrecio, campoCantidad, campoDescuento, campoDocumento;
+    EditText campoNombre,campoDescripcion,campoTipo, campoPrecio, campoCantidad, campoDescuento;
     Button botonRegistro,btnFoto, btnCancelar;
     ImageView imgFoto;
     ProgressDialog progreso;
@@ -151,7 +151,7 @@ public class frgGestionarProducto extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View vista=inflater.inflate(R.layout.fragment_frg_gestionar_producto, container, false);
-        campoDocumento= (EditText) vista.findViewById(R.id.campoDoc);
+
         campoNombre= (EditText) vista.findViewById(R.id.txtNombreProducto);
         campoDescripcion= (EditText) vista.findViewById(R.id.txtDescripcionProducto);
        // campoTipo= (EditText) vista.findViewById(R.id.txtTipoProducto);
@@ -311,7 +311,7 @@ public class frgGestionarProducto extends Fragment{
                 //Convertir bits a cadena
                 String imagen=convertirImgString(bitmap);
                 //Obtener el nombre de la imagen
-                String nombre=campoDocumento.getText().toString();
+                String nombre=campoNombre.getText().toString();
                 //Creación de parámetros
                 Map<String,String> params = new HashMap<String, String>();
 
@@ -334,7 +334,7 @@ public class frgGestionarProducto extends Fragment{
         //http://192.168.0.21:8080/productoFinal
             String url="http://192.168.0.21:81/productoFinal";
 //https://fvpaula.000webhostapp.com/imagenes/iconoFresh.png
-        String documento=campoDocumento.getText().toString();
+        String documento=campoNombre.getText().toString();
         String nombre=campoNombre.getText().toString();
         String descripcion=campoDescripcion.getText().toString();
         String tipo = mySpinner.getSelectedItem().toString();
