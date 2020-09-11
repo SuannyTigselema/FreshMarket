@@ -36,6 +36,7 @@ import com.example.freshmarket.adaptadores.adpProductos;
 import com.example.freshmarket.adaptadores.adpProductosCategoriasA;
 import com.example.freshmarket.objetos.VolleySingleton;
 import com.example.freshmarket.objetos.producto;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,6 +58,7 @@ public class frgInicioAdmin extends Fragment {
 
 
     ArrayList<producto> lstProductos;
+    ArrayList<producto> lstProductosP;
     ProgressDialog progress;
     JsonArrayRequest jsonObjectRequest;
 
@@ -99,14 +101,22 @@ public class frgInicioAdmin extends Fragment {
         rclProductosPopulares.setLayoutManager(linear);
 
         getProductos();
-
-        btnNuevoProducto=view.findViewById(R.id.btnNuevoProducto);
-        btnNuevoProducto.setOnClickListener(new View.OnClickListener() {
+       // getProductosPopulares();
+        FloatingActionButton fab = view.findViewById(R.id.btnNuevoProducto);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mostrarDialogOpciones();
             }
         });
+
+      /*  btnNuevoProducto=view.findViewById(R.id.btnNuevoProducto);
+        btnNuevoProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarDialogOpciones();
+            }
+        });*/
 
         return view;
 
@@ -148,7 +158,45 @@ public class frgInicioAdmin extends Fragment {
         });
         builder.show();
     }
+    public void getProductosPopulares()
+    {
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        JsonArrayRequest jobReq = new JsonArrayRequest(Request.Method.GET, url,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        producto p=null;
+                        try {
+                            for (int i=0;i<response.length();i++){
+                                p=new producto();
 
+                                JSONObject obj = response.getJSONObject(i);
+                                p.setUrl(obj.getString("imagen"));
+                                lstProductosP.add(p);
+                            }
+                            adpPopularesA adapter=new adpPopularesA(getContext(),lstProductosP);
+                            rclProductosPopulares.setAdapter(adapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getContext(), "No se ha podido establecer conexión con el servidor" +
+                                    " "+response, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        VolleyLog.e("Error: ", volleyError.getMessage());
+                        Toast.makeText(getContext(), "No se puede conectar "+volleyError.toString(), Toast.LENGTH_LONG).show();
+                        System.out.println();
+                        Log.d("ERROR: ", volleyError.toString());
+                        progress.hide();
+                    }
+                });
+
+        queue.add(jobReq);
+    }
     public void getProductos()
     {
         progress=new ProgressDialog(getContext());
@@ -174,9 +222,9 @@ public class frgInicioAdmin extends Fragment {
                                 lstProductos.add(p);
                             }
                             progress.hide();
-                         adpProductos adapter=new adpProductos(getContext(),lstProductos);
-                             /*  adpPopularesA adpPopulares=new adpPopularesA(getContext(),lstProductos);
-                            rclProductosPopulares.setAdapter(adpPopulares);*/
+                       adpProductos adapter=new adpProductos(getContext(),lstProductos);
+                       adpPopularesA adpPopulares=new adpPopularesA(getContext(),lstProductos);
+                            rclProductosPopulares.setAdapter(adpPopulares);
                             rclProductos.setAdapter(adapter);
 
                         } catch (JSONException e) {
@@ -199,9 +247,5 @@ public class frgInicioAdmin extends Fragment {
                 });
 
         queue.add(jobReq);
-
-
-
-
     }
 }

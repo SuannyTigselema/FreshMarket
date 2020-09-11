@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -85,6 +86,7 @@ public class frgGestionarProducto extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     private static final String CARPETA_PRINCIPAL = "misImagenesApp/";//directorio principal
     private static final String CARPETA_IMAGEN = "imagenes";//carpeta donde se guardan las fotos
@@ -295,8 +297,6 @@ public class frgGestionarProducto extends Fragment{
                         progreso.hide();
                         ruta[0] = s;
                         Toast.makeText(getContext(),s,Toast.LENGTH_SHORT).show();
-
-
                     }
                 },
                 new Response.ErrorListener() {
@@ -366,24 +366,23 @@ public class frgGestionarProducto extends Fragment{
                     @Override
                     public void onResponse(JSONObject response) {
                         progreso.hide();
-                        Toast.makeText(getContext(),"Producto registrado con exito",Toast.LENGTH_SHORT).show();
-                        campoCantidad.setText("");
+                       /* campoCantidad.setText("");
                         campoDescripcion.setText("");
                         campoDescuento.setText("");
                         campoDocumento.setText("");
                         campoNombre.setText("");
                         campoPrecio.setText("");
-                        campoTipo.setText("");
-
-
+                        campoTipo.setText("");*/
+                        Toast.makeText(getContext(),"Producto registrado con exito",Toast.LENGTH_SHORT).show();
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        VolleyLog.e("Error: ", volleyError.getMessage());
-                    }
-                });
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getContext(),"Producto no registrado con exito",Toast.LENGTH_SHORT).show();
+            }
+        }
+       );
 
         queue.add(jobReq);
 

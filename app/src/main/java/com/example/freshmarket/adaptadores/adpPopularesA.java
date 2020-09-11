@@ -36,13 +36,6 @@ public class adpPopularesA extends RecyclerView.Adapter<adpPopularesA.MyViewHold
         mContext = context;
         mLista=lista;
     }
-  private String[] datos;
-
-    /* public adpPopularesA(){this.datos = new String[]{"a","a","a","a","a","a","a","a","a","a","a"};}*/
-
-    //Métodos propios del RecyclerdView
-
-    //infla los items al recyclerd
     @NonNull
     @Override
     public adpPopularesA.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -70,7 +63,7 @@ public class adpPopularesA extends RecyclerView.Adapter<adpPopularesA.MyViewHold
     //Devuelve la cantidad del elementos del recyclerd
     @Override
     public int getItemCount() {
-        return datos.length;
+        return mLista.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
