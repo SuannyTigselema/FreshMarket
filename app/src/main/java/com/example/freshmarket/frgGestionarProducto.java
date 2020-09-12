@@ -1,10 +1,8 @@
 package com.example.freshmarket;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -38,34 +36,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.freshmarket.adaptadores.adpProductos;
-import com.example.freshmarket.objetos.VolleySingleton;
-import com.example.freshmarket.objetos.producto;
+import com.bumptech.glide.Glide;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.frosquivel.magicalcamera.MagicalPermissions;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 import static android.Manifest.permission.CAMERA;
@@ -100,9 +89,10 @@ public class frgGestionarProducto extends Fragment{
     private static final int COD_FOTO = 20;
 
     EditText campoNombre,campoDescripcion,campoTipo, campoPrecio, campoCantidad, campoDescuento;
-    Button botonRegistro,btnFoto, btnCancelar;
+    Button botonRegistro,btnFoto, btnCancelar, btnEliminar;
     ImageView imgFoto;
     ProgressDialog progreso;
+    String urlREST="http://192.168.0.21:81/productoFinal";
 
     private MagicalPermissions magicalPermissions;
     private final static int RESIZE_PHOTO_PIXELS_PERCENTAGE=50;
@@ -137,12 +127,35 @@ public class frgGestionarProducto extends Fragment{
         return fragment;
     }
 
+
+    public String nombre;
+    public String descripcion;
+    public String url;
+    public String precio;
+    public String cantidad;
+    public String descuento;
+    public String tipo;
+    public Integer id;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+
+        Bundle data = this.getArguments();
+        if(data != null){
+            id=data.getInt("id");
+            nombre = data.getString("nombre");
+            descripcion = data.getString("descripcion");
+            url = data.getString("url");
+            precio = data.getString("precio");
+            cantidad = data.getString("cantidad");
+            descuento = data.getString("descuento");
+            tipo = data.getString("tipo");
+
         }
     }
 
@@ -160,8 +173,9 @@ public class frgGestionarProducto extends Fragment{
         campoDescuento= (EditText) vista.findViewById(R.id.txtDescuentoProducto);
         botonRegistro= (Button) vista.findViewById(R.id.btnRegistrarProducto);
         btnFoto=(Button)vista.findViewById(R.id.btnFoto);
+        btnEliminar=(Button)vista.findViewById(R.id.btnEliminarProducto);
         btnCancelar=(Button)vista.findViewById(R.id.btnCancelar);
-        imgFoto=(ImageView)vista.findViewById(R.id.imgFoto);
+        imgFoto=(ImageView)vista.findViewById(R.id.imgFotoProducto);
 
         mySpinner = (Spinner) vista.findViewById(R.id.spinner);
 
@@ -173,17 +187,30 @@ public class frgGestionarProducto extends Fragment{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(adapter);
 
-       // layoutRegistrar= (RelativeLayout) vista.findViewById(R.id.idLayoutRegistrar);
 
-        // request= Volley.newRequestQueue(getContext());
 
-        //Permisos
+        if(nombre!=null) {
+            campoNombre.setText(nombre);
+            campoDescripcion.setText(descripcion);
+            campoPrecio.setText(precio);
+            campoCantidad.setText(cantidad);
+            campoDescuento.setText(descuento);
+            Glide.with(getContext())
+                    .load(url)
+                    .into(imgFoto);
+                btnEliminar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        eliminarProducto();
+                    }
+                });
+
+        }
         if(solicitaPermisosVersionesSuperiores()){
             btnFoto.setEnabled(true);
         }else{
             btnFoto.setEnabled(false);
         }
-
 
         botonRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +218,6 @@ public class frgGestionarProducto extends Fragment{
                 cargarWebService();
             }
         });
-
         btnFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,6 +233,32 @@ public class frgGestionarProducto extends Fragment{
             }
         });
         return vista;  }
+
+    private void eliminarProducto() {
+        progreso=new ProgressDialog(getContext());
+        progreso.setMessage("Cargando...");
+        progreso.show();
+
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        StringRequest  jobReq = new StringRequest (Request.Method.DELETE, urlREST+"/"+id+"",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progreso.hide();
+                        Toast.makeText(getContext(),"Producto eliminado con exito",Toast.LENGTH_SHORT).show();
+                        getActivity().onBackPressed();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progreso.hide();
+                Toast.makeText(getContext(),"Producto no eliminado con exito"+error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+
+        queue.add(jobReq);
+    }
 
 
     private String convertirImgString(Bitmap bitmap) {
@@ -314,7 +366,6 @@ public class frgGestionarProducto extends Fragment{
                 String nombre=campoNombre.getText().toString();
                 //Creación de parámetros
                 Map<String,String> params = new HashMap<String, String>();
-
                 //Agregando de parámetros
                 params.put("imagen", imagen);
                 params.put("nombre", nombre);
@@ -332,9 +383,8 @@ public class frgGestionarProducto extends Fragment{
 //https://fvpaula.000webhostapp.com/subir_imagen.php
         //https://fvpaula.000webhostapp.com/insertar_producto.php?
         //http://192.168.0.21:8080/productoFinal
-            String url="http://192.168.0.21:81/productoFinal";
 //https://fvpaula.000webhostapp.com/imagenes/iconoFresh.png
-        String documento=campoNombre.getText().toString();
+     //   String documento=campoNombre.getText().toString();
         String nombre=campoNombre.getText().toString();
         String descripcion=campoDescripcion.getText().toString();
         String tipo = mySpinner.getSelectedItem().toString();
@@ -343,12 +393,12 @@ public class frgGestionarProducto extends Fragment{
         String precio=campoPrecio.getText().toString();
         String cantidad=campoCantidad.getText().toString();
         String descuento=campoDescuento.getText().toString();
-        String imagen="https://fvpaula.000webhostapp.com/imagenes/"+documento+".jpg";
+        String imagen="https://fvpaula.000webhostapp.com/imagenes/"+nombre+".jpg";
 
         JSONObject producto = new JSONObject();
         try {
             producto.put("nombre",nombre);
-         producto.put("cantidad",cantidad);
+         producto.put("stock",cantidad);
             producto.put("descripcion",descripcion);
             producto.put("tipo",tipo);
             producto.put("precio",precio);
@@ -361,7 +411,7 @@ public class frgGestionarProducto extends Fragment{
         }
 
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, url, producto,
+        JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, urlREST, producto,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -374,11 +424,12 @@ public class frgGestionarProducto extends Fragment{
                         campoPrecio.setText("");
                         campoTipo.setText("");*/
                         Toast.makeText(getContext(),"Producto registrado con exito",Toast.LENGTH_SHORT).show();
+                       // getActivity().onBackPressed();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progreso.hide();
                 Toast.makeText(getContext(),"Producto no registrado con exito",Toast.LENGTH_SHORT).show();
             }
         }
@@ -503,7 +554,7 @@ public class frgGestionarProducto extends Fragment{
 
                 break;
         }
-        bitmap=redimensionarImagen(bitmap,600,800);
+        bitmap=redimensionarImagen(bitmap,900,800);
     }
     private Bitmap redimensionarImagen(Bitmap bitmap, float anchoNuevo, float altoNuevo) {
 

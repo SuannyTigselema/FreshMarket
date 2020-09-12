@@ -221,7 +221,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imgFoto"
+                android:id="@+id/imgFotoProducto"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@+id/lyfoto"
@@ -235,7 +235,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/imgFoto"
+                android:layout_below="@+id/imgFotoProducto"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="0dp"

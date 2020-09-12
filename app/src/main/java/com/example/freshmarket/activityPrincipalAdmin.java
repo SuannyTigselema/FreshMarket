@@ -54,24 +54,6 @@ public class activityPrincipalAdmin extends AppCompatActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_frame, fragment)
                     .commit();
-
-            // recyclerview=(RecyclerView)findViewById(R.id.recycler);
-
-        //añadir un Divider a los elementos de la lista->Diseño de la linea de separacion de los items
-        //recyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL));
-
-        //Establecer el LayoutManager para definir la forma en la que se muestran los items en este caso en  forma de lista vertical
-      //  recyclerview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-
-        //Solicitud WebService
-        //https://my-json-server.typicode.com/SuannyTigselema/productos/producto
-        //https://mercado-a4435.firebaseio.com/producto.json
-    /*    Map<String, String> datos = new HashMap<>();
-        WebService ws= new WebService("https://mercado-a4435.firebaseio.com/producto.json",datos,
-                activityPrincipalAdmin.this, (Asynchtask) activityPrincipalAdmin.this);
-
-        ws.execute("GET");*/
-
     }
 
     @Override

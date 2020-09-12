@@ -93,7 +93,7 @@ public class frgGestionarRepartidores extends Fragment {
         rclRepartidores = (RecyclerView) view.findViewById(R.id.rclRepartidores);
         rclRepartidores.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rclRepartidores.setHasFixedSize(true);
-        rclRepartidores.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        // rclRepartidores.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         getRepartidores();
         return view;

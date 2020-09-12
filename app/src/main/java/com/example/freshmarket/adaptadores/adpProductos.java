@@ -16,7 +16,8 @@ import com.example.freshmarket.objetos.producto;
 
 import java.util.ArrayList;
 
-public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder> {
+public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder>
+        implements View.OnClickListener {
     private static final int TYPE_HEADER=0;
     private static final int TYPE_LIST=0;
 
@@ -32,10 +33,14 @@ public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder
     public TextView txtNombre;
     public TextView lblStock;
     public ImageView imgFoto;
+    private View.OnClickListener listener;
 
     public adpProductos(Context context, ArrayList<producto> lista) {
         mContext = context;
         mLista=lista;
+    }
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
     }
   private String[] datos;
 
@@ -50,6 +55,7 @@ public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder
         View view;
            view= LayoutInflater.from(parent.getContext())
                    .inflate(R.layout.admin_item_producto,null,false);
+            view.setOnClickListener(this);
            return new MyViewHolder(view);
 
     }
@@ -75,6 +81,14 @@ public class adpProductos extends RecyclerView.Adapter<adpProductos.MyViewHolder
     @Override
     public int getItemCount() {
             return mLista.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(listener!=null)
+        {
+            listener.onClick(view);
+        }
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

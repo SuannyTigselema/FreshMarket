@@ -124,6 +124,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
+
+
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
@@ -137,7 +139,7 @@
         android:width="300dp"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"

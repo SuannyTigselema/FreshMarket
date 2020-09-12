@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -218,12 +219,41 @@ public class frgInicioAdmin extends Fragment {
                                 p.setDescripcion(obj.getString("descripcion"));
                                 p.setCantidad(obj.getString("stock"));
                                 p.setPrecio(obj.getString("precio"));
+                                p.setTipo(obj.getString("tipo"));
+                                p.setDescuento(obj.getString("descuento"));
+                                p.setId(Integer.valueOf(obj.getString("id_producto_final")));
                                 p.setUrl(obj.getString("imagen"));
                                 lstProductos.add(p);
                             }
                             progress.hide();
                        adpProductos adapter=new adpProductos(getContext(),lstProductos);
                        adpPopularesA adpPopulares=new adpPopularesA(getContext(),lstProductos);
+                            adapter.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    int opcselec=rclProductos.getChildAdapterPosition(view);
+                                    Integer itemselec= lstProductos.get(opcselec).getId();
+
+                                    frgGestionarProducto fragment = new frgGestionarProducto();
+                                    Bundle data = new Bundle();
+                                    data.putInt("id", lstProductos.get(opcselec).getId());
+                                    data.putString("nombre", lstProductos.get(opcselec).getNombre());
+                                    data.putString("descripcion", lstProductos.get(opcselec).getDescripcion());
+                                    data.putString("tipo", lstProductos.get(opcselec).getTipo());
+                                    data.putString("precio", lstProductos.get(opcselec).getPrecio());
+                                    data.putString("cantidad", lstProductos.get(opcselec).getCantidad());
+                                    data.putString("descuento", lstProductos.get(opcselec).getDescuento());
+                                    data.putString("url", lstProductos.get(opcselec).getUrl());
+                                    fragment.setArguments(data);
+                                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.content_frame, fragment);
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+
+
+                                }
+                            });
                             rclProductosPopulares.setAdapter(adpPopulares);
                             rclProductos.setAdapter(adapter);
 

@@ -206,8 +206,9 @@
 
             </LinearLayout>
 
+
             <ImageView
-                android:id="@+id/imgFoto"
+                android:id="@+id/imgFotoProducto"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@+id/lyfoto"
@@ -216,41 +217,46 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                app:srcCompat="@drawable/verduras" />
+                app:srcCompat="@android:drawable/ic_menu_report_image" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/imgFoto"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgFotoProducto"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="0dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnRegistrarProducto"
-                    android:layout_width="160dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/bordes_redondos"
+                    android:background="@drawable/bordes_redondos2"
                     android:color="#689F38"
                     android:text="Guardar"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#689F38"
                     android:textStyle="bold" />
-
+                <Button
+                    android:id="@+id/btnEliminarProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bordes_redondos2"
+                    android:color="#689F38"
+                    android:text="Eliminar"
+                    android:textAlignment="center"
+                    android:textColor="#689F38"
+                    android:textStyle="bold" />
                 <Button
                     android:id="@+id/btnCancelar"
-                    android:layout_width="160dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/bordes_redondos"
-
+                    android:background="@drawable/bordes_redondos2"
                     android:color="#689F38"
                     android:text="Cancelar"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#689F38"
                     android:textStyle="bold" />
             </LinearLayout>
 

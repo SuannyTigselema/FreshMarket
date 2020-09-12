@@ -14,6 +14,33 @@ public class producto {
     public String url;
     public String precio;
     public String cantidad;
+    public String descuento;
+    public String tipo;
+    public Integer id;
+
+    public String getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(String descuento) {
+        this.descuento = descuento;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getPrecio() {
         return precio;

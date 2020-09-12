@@ -69,11 +69,28 @@
 
             <TextView
                 android:id="@+id/lblStock"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center|start"
                 android:text="20"
                 android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="30dp"
+                    android:layout_height="33dp"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+                    android:text="+"
+                    android:textAlignment="gravity"
+                    android:textColor="#7C7979" />
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -105,18 +122,6 @@
             app:civ_border_color="#C3E1DEDE"
             app:civ_border_width="1dp"
             android:background="@drawable/btn_circle"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/quitar"
-            app:civ_border_color="#C3E1DEDE"
-            android:background="@drawable/btn_circle"
-            app:civ_border_width="1dp"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
 
